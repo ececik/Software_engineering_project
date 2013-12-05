@@ -1,0 +1,5 @@
+C:\Program Files\Unity\evoline\evoline\obj\Debug\ResolveAssemblyReference.cache
+C:\Program Files\Unity\evoline\evoline\bin\evoline.dll
+C:\Program Files\Unity\evoline\evoline\bin\evoline.pdb
+C:\Program Files\Unity\evoline\evoline\obj\Debug\evoline.dll
+C:\Program Files\Unity\evoline\evoline\obj\Debug\evoline.pdb
