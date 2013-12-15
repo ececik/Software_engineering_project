@@ -1,0 +1,5 @@
+use mydatabase
+
+create table intern(email varchar(20), number int, 
+interntopic varchar(50), languages varchar(20), workex varchar(20),
+school varchar(50), department varchar(50))
