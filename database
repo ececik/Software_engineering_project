@@ -1,0 +1,113 @@
+/*mydatabase veritabanı üzerindeki proje veritabanı kodları*/
+
+/* firma ve puanlandırma table larının oluşturulması*/
+
+create table firm(tid int primary key, firmname varchar(50), femail varchar(50),flogo varbinary(100),
+pword varchar(20), adres varchar(50), ftel varchar(20), departman varchar(50), lang varchar(50));
+
+create table puan(pid int primary key,  iemail varchar(50), femail varchar(50), puan varchar(20));
+ 
+create table intern(iid int primary key, iemail varchar(50), ilogo varbinary(100), 
+interntopic varchar(50), languages varchar(20), workex varchar(60), 
+school varchar(50), department varchar(50), itel varchar(20)) 
+
+create table blog( bid int primary key, iemail varchar(50), tex varchar(1000))
+ 
+/* yanlış sorgulamalarda gerekli silme işlemi için firma ve puan silme*/
+ 
+drop table intern; 
+drop table firm;
+drop table puan;
+drop table blog; 
+
+/* stored procedure firma ekleme işlemi için*/
+
+use mydatabase
+
+/*procedure ü gören komut satırı*/
+
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+create procedure add_firm
+(
+@firmname varchar(50),
+@femail varchar(50),
+@flogo varbinary(100),
+@pword varchar(20),
+@adres varchar(50),
+@ftel varchar(20),
+@departman varchar(50),
+@lang varchar(50)
+)
+as
+set nocount on
+insert into firm(firmname,femail,flogo,pword,adres,ftel,departman,lang)
+values (@firmname,@femail,@flogo,@pword,@adres,@ftel,@departman,@lang)
+set nocount off
+go
+
+/*intern ekleyen stored procedure*/
+
+create procedure add_intern
+(
+@iemail varchar(20),
+@ilogo varbinary(100),
+@interntopic varchar(50),
+@languages varchar(20),
+@workex varchar(60),
+@school varchar(50),
+@department varchar(50),
+@itel varchar(20)
+)
+as
+set nocount on
+insert into intern(iemail,ilogo,interntopic,languages,
+workex,school,department,itel)
+values (@iemail,@ilogo,@interntopic,@languages,
+@workex,@school,@department,@itel)
+set nocount off
+go
+
+/*internin puan eklediği stored procedure*/
+
+create procedure add_puan
+(
+@iemail varchar(50),
+@femail varchar(50),
+@puan varchar(20)
+)
+as
+set nocount on
+insert into puan(iemail,femail,puan)
+values (@iemail,@femail,@puan)
+set nocount off
+go
+
+/*giriş bilgisi ekleme*/
+
+create procedure add_blog
+(
+@iemail varchar(50),
+@tex varchar(100)
+)
+as
+set nocount on
+insert into blog(iemail,tex)
+values (@iemail,@tex)
+set nocount off
+go
+
+
+/*delete procedure kodları yanlış kodlamaları düzeltmek için*/
+drop procedure add_intern
+drop procedure add_log_in
+drop procedure add_puan
+drop procedure add_firm
+
+/*kayıt silme "delete" procedures*/
+
+
