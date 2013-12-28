@@ -1,0 +1,7 @@
+SqlCommand ekle = new SqlCommand("add_blog", baglanti);
+                ekle.CommandType = System.Data.CommandType.StoredProcedure;
+                ekle.Parameters.Add("@iemail", SqlDbType.VarChar, 50);
+                ekle.Parameters["@iemail"].Value = TextBox1.Text;
+                ekle.Parameters.Add("@tex", SqlDbType.VarChar, 100);
+                ekle.Parameters["@tex"].Value = TextBox2.Text;
+                ekle.ExecuteNonQuery();
