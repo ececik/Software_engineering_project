@@ -1,0 +1,20 @@
+ protected void Button9_Click(object sender, EventArgs e)
+        {
+            SqlConnection baglanti = new SqlConnection();
+            baglanti.ConnectionString = @"integrated security=true;server=admin-admin\MSSQL;database=mydatabase";
+            SqlCommand sorgu = new SqlCommand();
+            sorgu.Connection = baglanti;
+            sorgu.CommandType = System.Data.CommandType.Text;
+            sorgu.CommandText = "select iemail from intern ";
+            baglanti.Open();
+            string value = sorgu.ExecuteScalar() as string;
+            baglanti.Close();
+            if (TextBox1.Text.Equals(value))
+            {
+                TextBox2.Text = "böyle bir veri var";
+            }
+            else
+            {
+                Page.Controls.Add(new LiteralControl("<h2> Kullanıcı adı veya parolasını yanlış girdiniz </h2>"));
+            }
+        }
