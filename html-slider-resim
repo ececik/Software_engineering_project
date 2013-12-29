@@ -1,0 +1,8 @@
+
+
+// html de resmi görüntüleme kodu
+
+<div class="post-image">
+     <img src="images/intro-post-1.jpg" alt="" />
+	</div>
+
